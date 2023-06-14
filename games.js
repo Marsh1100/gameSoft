@@ -150,11 +150,13 @@ $btnEditCliente.addEventListener('click', function(e){
     editCliente.email= $emailE.value; 
     editCliente.fechaNac= $fechaNacE.value; 
     editCliente.nacionalidad= $nacionalidadE.value; 
+  
     console.log(editCliente);
 
     //Remplaza el objeto cliente con sus ediciones 
     clientes.forEach(function(element,index){
         if(element.id == editCliente.id){
+            editCliente.puntos = Number(element.puntos);
             clientes.splice(index,1,editCliente);
         }
     });
