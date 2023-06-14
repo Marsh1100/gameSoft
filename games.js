@@ -90,8 +90,7 @@ let $emailE = document.getElementById('emailE');
 let $fechaNacE = document.getElementById('fechaNacE');
 let $nacionalidadE = document.getElementById('nacionalidadE');
 
-//Modulo fidelización
-const $tablaClientesP =document.getElementById('template-clientesP')
+
 
 //AddEventListener
 document.addEventListener('DOMContentLoaded',function(){
@@ -139,7 +138,6 @@ $btnCliente.addEventListener('click',function(e){
 });
 
 $btnEditCliente.addEventListener('click', function(e){
-    console.log("holaaax2")
     e.preventDefault(); 
     e.stopPropagation();
 
@@ -164,7 +162,7 @@ $btnEditCliente.addEventListener('click', function(e){
     listaClientes(clientes);
     listaClientesP(clientes);
     
-    $formEditarCliente.style.display='none';
+    $formEditarCliente.style.display='none'; 
 
 });
 
@@ -253,6 +251,7 @@ function listaClientes(clientes){
     addlocalStorageC();
     clientesSelector();
 
+
 };
 
 function addlocalStorageC(){
@@ -323,13 +322,16 @@ $btnJuego.addEventListener('click',function(e){
     newJuego.nombre= $nombreJuego.value; 
     newJuego.tematica= $tematicaJuego.value; 
     newJuego.valor= $valorJuego.value; 
-    newJuego.puntos= $puntosJuego.value; 
+    newJuego.puntos= Number($puntosJuego.value); 
 
 
     //Asignar Nuevo Juego
     videoJuegos.push(newJuego);
     //Visualización
-    listarJuegos(videoJuegos)
+    listarJuegos(videoJuegos);
+
+    $nombreJuego.value=''; $tematicaJuego.value=''; $valorJuego.value=''; $puntosJuego.value='';
+
 });
 
 //Funciones
@@ -383,12 +385,13 @@ $botonConfirmarCompra.addEventListener('click',function(){
                 let juego = e.nombre;
                 let precio = e.valor;
                 
-                let puntos = e.puntos;
+                let puntos = Number(e.puntos);
     
                 clientes.forEach(function(a){
                     if(a.id == $seleccionarCliente.value){
                         let nombre = a.nombre +" "+a.apellidos;
-                        a.puntos += puntos;
+                        let suma = Number(a.puntos)+ puntos;
+                        a.puntos =suma;
     
                         factura(nombre,juego,precio)
                     };
@@ -454,14 +457,16 @@ function factura(nombre,juego,precio){
                             <p><b>Cliente:</b>${" "+nombre}</p>
                             <p><b>IVA: $</b>${iva}</p>
                             <p><b>Impuesto especial: $</b>${impuesto}</p>
-                            <p><b>TOTAL: $</b>${total}</p>`
+                            <p><b>TOTAL: $</b>${total}</p>`;
 
+    listaClientesP(clientes)
     $factura.style.display="block"    
 
 };
 
 
 //Modulo fidelización
+const $tablaClientesP =document.getElementById('template-clientesP');
 
 //Puntos de los clientes 
 function listaClientesP(clientes){
