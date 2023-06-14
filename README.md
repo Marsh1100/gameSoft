@@ -1,0 +1,2 @@
+# gameSoft
+Evaluación filtro 
