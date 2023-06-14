@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*body{
+    background-image: url("img/videojuegos.jpeg");
+}*/
+
+nav{
+    background-color: rgb(9, 97, 9);
+    color: white;
+    display: flex;
+}
+h1,h2,h3{
+    text-align: center;
+}
+/*MODULO CLIENTES*/
+.buscar{
+   display: flex;
+   justify-content: space-around;
+
+}
+.agregarTabla{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.form{
+    width:400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+
+    padding: 15px;
+    border-radius: 15px;
+
+    align-content: center;
+    justify-items: end;
+
+    background-color: rgb(156, 252, 172);
+}
+.scroll{
+    overflow-x: scroll;
+}
+
+/*MODULO JUEGOS*/
+.contedorBotonJuego{
+    display: flex;
+    justify-content: space-around;
+
+}
+.agregarJuegos{
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    align-items: center;
+}
+.cartas-juegos{
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card-img-top{
+    width: 200px;
+    height: 180px;
+
+    object-fit: contain;
+}
+
+
+.card{
+    margin:10px;
+}
+.card-text,.estrella{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.img-puntos,.imgBorrarJuego{
+    width: 20px;
+}
+.eliminarRuta{
+    background-color: transparent;
+    border: none;
+    padding-bottom: 10px;
+}
+
+
+/*Modulo COMPRAR*/
+
+.selectores{
+    margin: auto;
+    width: 600px;
+
+    
+}
+.buscadorfactura{
+    display: flex;
+
+}
+#modulo-compra{
+    margin:auto;
+    padding: 20px;
+}
+.factura{
+    background-color: rgb(164, 241, 164);
+    box-shadow: 0px 7px 12px 7px #c5c4c4;
+    width: 400px;
+    padding: 15px;
+
+    margin: auto;
+}
+.hidden{
+    display: none;
+}
+footer{
+    background-color: rgb(9, 97, 9);
+    color: white;
+}
+

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Styles-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="shortcut icon" href="img/control.ico">
+    <title>GamesSoft</title>
+
+    <link rel="shortcut icon" href="">
+
+</head>
+<body>
+    
+    <header>
+        <h1>Campus GamesSoft</h1>
+    </header>
+
+    <nav>
+        <ul class="nav nav-underline">
+            <li class="nav-item">
+              <a class="nav-link" href="#modulo-clientes" style="color:white">Clientes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#modulo-videoJuegos" style="color:white">Videojuegos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="#modulo-compra" style="color:white">Comprar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="#modulo-puntos" style="color:white">Puntos</a>
+              </li>
+          </ul>
+    </nav>
+
+    <main>
+        <!--Gestion Clientes -->
+        <section id="modulo-clientes">
+            <h3>Gestion de Clientes</h3>
+            <div class="buscar">
+                <button type="button" class="btn btn-outline-primary" id="b-agregar-cliente">Agregar+</button>
+                <form id="b-buscar-cliente" class="d-flex" role="search">
+                    <label for="buscar">Buscar:</label>
+                    <input class="form-control me-2" type="search" aria-label="Search" id="buscar">
+                    <button form="b-buscar-cliente" class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+
+            <div class="agregarTabla">
+
+                <form id="form-add-cliente" class="form hidden">
+                    <div style="display: flex;     justify-content: space-between;">
+                        <h4>Nuevo cliente</h4>
+                        <button id="b-volver-cliente" type="button" class="btn-close" aria-label="Close"
+                            style="color: white;"></button>
+                    </div>
+                   
+                    <input type="number" id="id" class="form-control form-control-sm" placeholder="Número de identificación" aria-label=".form-control-sm example"required>
+
+                    <input type="text" id="nombre" class="form-control form-control-sm" placeholder="Nombre" aria-label=".form-control-sm example" required>
+
+                    <input type="text" id="apellidos" class="form-control form-control-sm" placeholder="Apellidos" aria-label=".form-control-sm example"required>
+
+                    <input type="number" id="telefono" class="form-control form-control-sm" placeholder="Teléfono" aria-label=".form-control-sm example"required>
+
+                    <input type="email" id="email" class="form-control form-control-sm" placeholder="email" aria-label=".form-control-sm example"required>
+
+                    <input type="date" id="fechaNac" class="form-control form-control-sm" aria-label=".form-control-sm example" required>
+
+                    <input type="text" id="nacionalidad" class="form-control form-control-sm" placeholder="Nacionalidad" aria-label=".form-control-sm example"required>
+
+                    <button id="btn-add-cliente" class="btn btn-success" type="submit"
+                        style="grid-column-start: 1; grid-column-end: 3; margin: auto;">Guardar</button>
+                
+                </form>
+                
+                <form id="form-edit-cliente" class="form hidden">
+                    <div style="display: flex;     justify-content: space-between;">
+                        <h4>Editar cliente</h4>
+                        <button id="b-volver-cliente" type="button" class="btn-close" aria-label="Close"
+                            style="color: white;"></button>
+                    </div>
+                   
+                    <input type="number" id="idE" class="form-control form-control-sm" placeholder="Número de identificación" aria-label=".form-control-sm example" disabled required>
+
+                    <input type="text" id="nombreE" class="form-control form-control-sm" placeholder="Nombre" aria-label=".form-control-sm example" required>
+
+                    <input type="text" id="apellidosE" class="form-control form-control-sm" placeholder="Apellidos" aria-label=".form-control-sm example"required>
+
+                    <input type="number" id="telefonoE" class="form-control form-control-sm" placeholder="Teléfono" aria-label=".form-control-sm example"required>
+
+                    <input type="email" id="emailE" class="form-control form-control-sm" placeholder="email" aria-label=".form-control-sm example"required>
+
+                    <input type="text" id="fechaNacE" class="form-control form-control-sm" aria-label=".form-control-sm example" required>
+
+                    <input type="text" id="nacionalidadE" class="form-control form-control-sm" placeholder="Nacionalidad" aria-label=".form-control-sm example"required>
+
+                    <button id="btn-edit-cliente" class="btn btn-success" type="submit"
+                        style="grid-column-start: 1; grid-column-end: 3; margin: auto;">Guardar</button>
+                
+                </form>
+
+                <div class="scroll">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col" style="color:rgb(21, 54, 2)">Número de identificación</th>
+                            <th scope="col" style="color:rgb(21, 54, 2)">Nombres</th>
+                            <th scope="col" style="color:rgb(21, 54, 2)">Apellidos</th>
+                            <th scope="col" style="color:rgb(21, 54, 2)">Teléfonos</th>
+                            <th scope="col" style="color:rgb(21, 54, 2)">Correo electrónico</th>
+                            <th scope="col" style="color:rgb(21, 54, 2)">Fecha de nacimiento</th>
+                            <th scope="col" style="color:rgb(21, 54, 2)">Nacionalidad</th>
+                            <th scope="col" style="color:rgb(21, 54, 2)">Opciones</th>
+    
+                          </tr>
+                        </thead>
+                        <tbody id="lista-clientes">
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>100726854585</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>3004157896</td>
+                            <td>mark@gmail.com</td>
+                            <td>Colombiano</td>
+                            <td>
+                                <button type="button" class="btn btn-warning bi bi-pencil-square"
+                                    style="color: rgb(255, 255, 255);"></button>
+                                <button type="button" class="btn btn-danger bi bi-trash"></button>
+                            </td>
+                          </tr>
+                          <!--Se agrega dinámicamente-->
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </section>
+        <!--Gestion VideoJuegos -->
+        <section id="modulo-videoJuegos">
+            <h3>Gestion de VideoJuegos</h3>
+            <div class="contedorBotonJuego">
+                <button type="button" class="btn btn-outline-primary" id="btn-agregar-juego">Agregar+</button>
+            </div>
+
+            <div class="agregarJuegos">
+                <form id="form-add-juego" class="form hidden">
+                    <div style="display: flex;     justify-content: space-between;">
+                        <h4>Nuevo Juego</h4>
+                        <button id="btn-volver-juegos" type="button" class="btn-close" aria-label="Close"
+                            style="color: white;"></button>
+                    </div>
+                
+                    <input type="text" id="nombre-juego" class="form-control form-control-sm" placeholder="Nombre del juego" aria-label=".form-control-sm example" required>
+    
+                    <input type="text" id="tematica" class="form-control form-control-sm" placeholder="Temática" aria-label=".form-control-sm example"required>
+    
+                    <input type="number" id="valor" class="form-control form-control-sm" placeholder="Precio" aria-label=".form-control-sm example"required>
+    
+                    <input type="number" id="puntos" class="form-control form-control-sm" placeholder="Puntos" aria-label=".form-control-sm example"required>
+    
+                    <button id="btn-add-juego" class="btn btn-success" type="submit"
+                        style="grid-column-start: 1; grid-column-end: 3; margin: auto;">Guardar</button>
+                
+                </form>
+                <div class="cartas-juegos" id="carta-videoJuegos">
+                    <div class="card" style="width: 18rem;  display: flex;align-items: center;">
+                        <img src="https://i.blogs.es/c65bb0/mario1/450_1000.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title  justify-content-center">Mario Kart</h5>
+                            <p class="card-text"><b>Temática:</b> ...</p>
+                            <p class="card-text"><b>Valor: $</b> ...</p>
+                            <div class="estrella"><img src="img/estrella2.png" alt="Puntos" class="img-puntos" style="text-align: center;"></div>
+                            <p class="card-text"><b>Puntos:</b>30</p>
+                            
+                        </div>
+                        <button class="eliminarRuta">
+                            <img src="img/borrar.png" alt="eliminar" class="imgBorrarJuego">
+                        </button>
+                      </div>
+                      <!--Agregar juegos dinámicamente-->
+                </div>
+    
+                
+            </div>
+            
+
+        </section>
+        <!--Comprar VideoJuegos -->
+        <section id="modulo-compra">
+            <h3>Comprar VideoJuegos</h3>
+
+            <div class="buscadorfactura">
+                <div class="selectores">
+                    <p>Buscador de clientes:</p>
+                    <select id="seleccionar-cliente" class="form-select">
+                        <!--Agregar clientes de forma dinámica-->
+                    </select><br>
+                    <p>Buscador de juegos:</p>
+                    <select id="seleccionar-juego" class="form-select">
+                        <!--Agregar JUEGOS de forma dinámica-->
+                    </select>
+                    <button id="confirmar-compra"type="button" class="btn btn-primary confirmar" type="submit">Confirmar compra</button>
+
+                </div>
+    
+                <div class="factura hidden" id="factura">
+                    <!--Se agrega dinamicamente-->
+                </div>
+
+            </div>
+            
+            
+        </section>
+        <!--Sistema de fidelización-->
+        <section id="modulo-puntos">
+            <h3>Sistema de fidelización</h3>
+
+            <div class="scroll">
+                <table class="table table">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="color: rgb(21, 54, 2);">ID</th>
+                            <th scope="col" style="color: rgb(21, 54, 2);">Número de identificación</th>
+                            <th scope="col" style="color: rgb(21, 54, 2);">Nombre</th>
+                            <th scope="col" style="color: rgb(21, 54, 2);">Apellidos</th>
+                            <th scope="col" style="color: rgb(21, 54, 2);">Teléfono</th>
+    
+                            <th scope="col" style="color: rgb(21, 54, 2);">Puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody id="template-clientesP">
+                        <tr id="1">
+                            <th scope="row">1</th>
+                            <td>100725564</td>
+                            <td>Camilo Andres</td>
+                            <td>Figueroa Rojas</td>
+                            <td>3045125693</td>
+                            <td>80</td>
+                          
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+            
+        </section>
+
+
+    </main>
+
+    <footer> ©Margie Bocanegra</footer>
+    <!--JavaScript-->
+    <script src="games.js"></script>
+    <!--Libreria para generar ID unicos-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js"></script>
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!--SweetAlert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
